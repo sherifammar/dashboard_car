@@ -32,7 +32,7 @@ class AppLink {
   static const String updatetoapprove = "$server/orders/updatetoapprove.php";
   static const String updatetoarchive = "$server/orders/updatetoarchive.php";
 
-  static const String approve_underinspect = "$server/orders/approve&underinspect.php";
+  // static const String approve_underinspect = "$server/orders/approve&underinspect.php";
   static const String undercheckup = "$server/orders/undercheckup.php";
   static const String underdelivery_finish = "$server/orders/underdelivery&finish.php";
   static const String underfinish = "$server/orders/underfinish.php";
