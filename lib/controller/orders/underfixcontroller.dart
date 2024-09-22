@@ -7,9 +7,9 @@ import '../../core/class/StatusRequest.dart';
 import '../../core/function/handlingdatacontroller.dart';
 import '../../core/services/servives.dart';
 
-import '../../data/remote/orders/approveorder_underinspectdata.dart';
-import '../../data/remote/orders/underfinish.dart';
-import '../../data/remote/orders/underfix.dart';
+import '../../data/remote/orders/approveorder_underinspect_data.dart';
+import '../../data/remote/orders/underfinish_data.dart';
+import '../../data/remote/orders/underfix_data.dart';
 import '../../model.dart/ordersmodel.dart';
 
 class Underfixcontroller extends GetxController {
@@ -18,6 +18,14 @@ class Underfixcontroller extends GetxController {
   UnderfixData ordersDetail = UnderfixData(Get.find());
   late OrdersModel ordersmodels;
   Myservices myservices = Get.find();
+  //=================
+   DateTime dateTime = DateTime.now();
+  String? ordersdate;
+ choosetpeBookingdate(String val) {
+    ordersdate = val;
+    print(val);
+    update();
+  }
 
   getUnderfix() async {
     statusRequest = StatusRequest.loading; // for  loading
@@ -38,11 +46,11 @@ class Underfixcontroller extends GetxController {
     update(); // update ui
   }
 
-  UppdateinspectTofix(String ordersid, String ordersfixed) async {
+  UppdateinspectTofix(String ordersid) async {
     data.clear();
     statusRequest = StatusRequest.loading; // for  loading
     var response = await ordersDetail.UppdateinspectTofix(ordersid,
-        ordersfixed); // getData for test_data page == it post data to url test
+        ordersdate!); // getData for test_data page == it post data to url test
 
     print("**************** $response");
     statusRequest = handdlingData(
@@ -68,7 +76,7 @@ class Underfixcontroller extends GetxController {
   @override
   void onInit() {
     // ordersmodels = Get.arguments["ordersmodel"];
-    getUnderfix()();
+    getUnderfix();
 
     super.onInit();
   }

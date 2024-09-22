@@ -11,19 +11,28 @@ import '../../model.dart/ordersmodel.dart';
 class OrderPendingController extends GetxController {
   List<OrdersModel> data = []; // to save data from response
   List<OrdersModel> archivedata = []; // to save data from response
-  DateTime dateTime = DateTime.now();
+
   late StatusRequest statusRequest;
   // Archive archive = Archive(Get.find());
 
-  OrdersPending ordersPending = OrdersPending(Get.find());
+ OrdersPending orderspending = OrdersPending(Get.find());
   Myservices myservices = Get.find();
+
+   DateTime dateTime = DateTime.now();
+
+  String? ordersdate;
+ choosetpeBookingdate(String val) {
+    ordersdate = val;
+    print(val);
+    update();
+  }
 
   getOrders() async {
     data.clear();
     statusRequest = StatusRequest.loading; // for  loading
     update();
-    var response = await ordersPending
-        .getPendingData(); // getData for test_data page == it post data to url test
+    var response = await orderspending
+        . getPendingData(); // getData for test_data page == it post data to url test
 
     print("**************** $response");
     statusRequest = handdlingData(
@@ -44,11 +53,11 @@ class OrderPendingController extends GetxController {
   referhOrder() {
     getOrders();
   }
-
+//===============================
   deletOrders(String ordersid) async {
     // data.clear();
     statusRequest = StatusRequest.loading; // for  loading
-    var response = await ordersPending.removePendingOrder(
+    var response = await orderspending.removePendingOrder(
         ordersid); // getData for test_data page == it post data to url test
 
     print("**************** $response");
@@ -67,11 +76,11 @@ class OrderPendingController extends GetxController {
   }
   //=======================
 
-  editation(String ordersid, String ordersbookingdate) async {
+  editationWithdate(String ordersid) async {
     // data.clear();
     statusRequest = StatusRequest.loading; // for  loading
-    var response = await ordersPending.UpdateToapprove(ordersid,
-        ordersbookingdate); // getData for test_data page == it post data to url test
+    var response = await orderspending.UpdateToapprove(ordersid,
+       ordersdate!); // getData for test_data page == it post data to url test
 
     print("**************** $response");
     statusRequest = handdlingData(
@@ -90,7 +99,28 @@ class OrderPendingController extends GetxController {
     update();
   }
 //============================
+ editation(String ordersid , String ordersdate) async {
+    // data.clear();
+    statusRequest = StatusRequest.loading; // for  loading
+    var response = await orderspending.UpdateToapprove(ordersid,
+       ordersdate); // getData for test_data page == it post data to url test
 
+    print("**************** $response");
+    statusRequest = handdlingData(
+        response); // it give statusrequest error or statusrequest sucess
+
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == "success") {
+        Get.rawSnackbar(
+            title: "note", messageText: Text("sucess to approve"));
+        referhOrder();
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+    }
+
+    update();
+  }
 
 
   @override

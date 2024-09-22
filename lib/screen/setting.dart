@@ -32,7 +32,7 @@ class Setting extends StatelessWidget {
                           border: Border.all(width: 1.0)),
                       child: Column(
                         children: [
-                           Row(
+                          Row(
                             children: [
                               const Text(
                                 "category Under work",
@@ -54,7 +54,9 @@ class Setting extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(25),
                                   border: Border.all(width: 1.0)),
                               child: PieChartSample3()),
-                              SizedBox(height: 20,),
+                          SizedBox(
+                            height: 20,
+                          ),
                           Row(
                             children: [
                               const Text(
@@ -82,59 +84,65 @@ class Setting extends StatelessWidget {
                           ),
                           //===================
                           GridView(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3, mainAxisExtent: 80),
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 3, mainAxisExtent: 80),
 
-              physics:
-                  NeverScrollableScrollPhysics(), // remove error listview , gridleview
+                            physics:
+                                NeverScrollableScrollPhysics(), // remove error listview , gridleview
 
-              shrinkWrap: true,
-              children: [
-                 InkWell(
-                   child: Container(
+                            shrinkWrap: true,
+                            children: [
+                              InkWell(
+                                child: Container(
                                   decoration: BoxDecoration(
                                     color: ColorAPP.contentColorBlue,
                                     borderRadius: BorderRadius.circular(25),
                                   ),
                                   margin: EdgeInsets.all(5),
                                   child: MaterialButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Get.toNamed(AppRoutes.orderpending);
+                                    },
                                     child: Text(
                                         "Under Approve ${controller.countdisapprove}"),
                                   ),
                                 ),
-                 ),
-                                InkWell(
-                                  child: Container(
+                              ),
+                              InkWell(
+                                child: Container(
                                   margin: EdgeInsets.all(5),
                                   decoration: BoxDecoration(
                                     color: ColorAPP.contentColorYellow,
                                     borderRadius: BorderRadius.circular(25),
                                   ),
                                   child: MaterialButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                       Get.toNamed(AppRoutes.approve);
+                                    },
                                     child: Text(
                                         "Under Inspect ${controller.countinspect}"),
                                   ),
-                                                              ),
                                 ),
-                                InkWell(
-                                  child: Container(
+                              ),
+                              InkWell(
+                                child: Container(
                                   decoration: BoxDecoration(
                                     color: ColorAPP.contentColorPurple,
                                     borderRadius: BorderRadius.circular(25),
                                   ),
                                   margin: EdgeInsets.all(5),
                                   child: MaterialButton(
-                                    onPressed: () {},
-                                    child:
-                                        Text("  Under Fix  ${controller.countfix}"),
+                                    onPressed: () {
+                                        Get.toNamed(AppRoutes.underfix);
+                                    },
+                                    child: Text(
+                                        "  Under Fix  ${controller.countfix}"),
                                   ),
-                                                              ),
                                 ),
-                            
-                            InkWell(
-                              child: Container(
+                              ),
+                              InkWell(
+                                child: Container(
                                   decoration: BoxDecoration(
                                     color: ColorAPP.contentColorGreen,
                                     borderRadius: BorderRadius.circular(25),
@@ -142,11 +150,11 @@ class Setting extends StatelessWidget {
                                   margin: EdgeInsets.all(5),
                                   child: MaterialButton(
                                     onPressed: () {},
-                                    child:
-                                        Text("Under checkup ${controller.countcheckup}"),
+                                    child: Text(
+                                        "Under checkup ${controller.countcheckup}"),
                                   ),
                                 ),
-                            ),
+                              ),
                               InkWell(
                                 child: Container(
                                   margin: EdgeInsets.all(5),
@@ -157,33 +165,33 @@ class Setting extends StatelessWidget {
                                   child: MaterialButton(
                                     onPressed: () {},
                                     child: Text(
-                                        "Under finish ${controller.countfinish},",),
+                                      "Under finish ${controller.countfinish},",
+                                    ),
                                   ),
                                 ),
                               ),
-                                 InkWell(
-                                   child: Container(
-                                                                 margin: EdgeInsets.all(5),
-                                                                 decoration: BoxDecoration(
+                              InkWell(
+                                child: Container(
+                                  margin: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
                                     color: ColorAPP.contentColorBlack,
                                     borderRadius: BorderRadius.circular(25),
-                                                                 ),
-                                                                 child: MaterialButton(
+                                  ),
+                                  child: MaterialButton(
                                     onPressed: () {},
                                     child: Text(
-                                        "Delivery    ${controller.countdelivery}",style: TextStyle(color: Colors.white),),
-                                                                 ),
-                                                               ),
-                                 ),
+                                      "Delivery    ${controller.countdelivery}",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
 
-              ],),
-                        
-                         
                           //==========================
-                         
                         ],
-                      )
-                      )
+                      ))
                 ],
               ),
               // appBar: AppBar(

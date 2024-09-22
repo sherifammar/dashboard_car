@@ -8,7 +8,7 @@ import '../../core/class/StatusRequest.dart';
 import '../../core/function/handlingdatacontroller.dart';
 import '../../core/services/servives.dart';
 
-import '../../data/remote/orders/underdelivery_finish.dart';
+import '../../data/remote/orders/underdelivery_finish_data.dart';
 import '../../model.dart/ordersmodel.dart';
 
 
@@ -20,7 +20,14 @@ UnderdeliveryfinishData ordersData = UnderdeliveryfinishData(Get.find());
   late StatusRequest statusRequest;
 
   Myservices myServices = Get.find();
-
+  //=================================
+DateTime dateTime = DateTime.now();
+  String? ordersdate;
+ choosetpeBookingdate(String val) {
+    ordersdate = val;
+    print(val);
+    update();
+  }
 
   GetunderdeliveryfinishData() async {
     archiveData.clear();
@@ -42,11 +49,11 @@ UnderdeliveryfinishData ordersData = UnderdeliveryfinishData(Get.find());
     }
     update();
   }
- uppdatetoarchive (String ordersid, String ordersdeliverdate) async {
+ uppdatetoarchive (String ordersid) async {
 
     statusRequest = StatusRequest.loading; // for  loading
     var response = await ordersData. Uppdatetoarchive (ordersid,
-        ordersdeliverdate); // getData for test_data page == it post data to url test
+       ordersdate!); // getData for test_data page == it post data to url test
 
     print("**************** $response");
     statusRequest = handdlingData(

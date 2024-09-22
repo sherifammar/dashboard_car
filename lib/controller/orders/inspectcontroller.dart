@@ -8,19 +8,17 @@ import '../../core/function/handlingdatacontroller.dart';
 import '../../core/services/servives.dart';
 
 import '../../data/remote/orders/approveorder_underinspect_data.dart';
-import '../../data/remote/orders/undercheckup_data.dart';
-import '../../data/remote/orders/underfinish_data.dart';
-import '../../data/remote/orders/underfix_data.dart';
 import '../../model.dart/ordersmodel.dart';
 
-class Undercheckupcontroller extends GetxController {
+class Inspectcontroller extends GetxController {
   late StatusRequest statusRequest = StatusRequest.none;
   List<OrdersModel> data = [];
-   UnderfinishData ordersDetail =  UnderfinishData(Get.find());
+  OrdersApprove_underinspectlData ordersDetail = OrdersApprove_underinspectlData(Get.find());
   late OrdersModel ordersmodels;
   Myservices myservices = Get.find();
-  //===============
-  DateTime dateTime = DateTime.now();
+  String? ordersid;
+ DateTime dateTime = DateTime.now();
+
   String? ordersdate;
  choosetpeBookingdate(String val) {
     ordersdate = val;
@@ -28,9 +26,13 @@ class Undercheckupcontroller extends GetxController {
     update();
   }
 
-  getUnderfinish() async {
+//=================
+ late TextEditingController inspect;
+
+
+  getapproveunderinspect() async {
     statusRequest = StatusRequest.loading; // for  loading
-    var response = await ordersDetail.getunderfinishData();
+    var response = await ordersDetail.getApproveUnderinspectsData();
 
     print("**************** $response");
     statusRequest = handdlingData(response);
@@ -47,11 +49,11 @@ class Undercheckupcontroller extends GetxController {
     update(); // update ui
   }
 
-   uppdatecheckuptofinish (String ordersid) async {
+  gotoapprove() async {
     data.clear();
     statusRequest = StatusRequest.loading; // for  loading
-    var response = await ordersDetail.  Uppdatecheckuptofinish (ordersid,
-        ordersdate!); // getData for test_data page == it post data to url test
+    var response = await ordersDetail.UppdateapproveToinspect(
+       ordersid !,  ordersdate!,  inspect.text) ; // getData for test_data page == it post data to url test
 
     print("**************** $response");
     statusRequest = handdlingData(
@@ -60,7 +62,8 @@ class Undercheckupcontroller extends GetxController {
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
         Get.rawSnackbar(
-            title: "note", messageText: const Text("sucess to finish"));
+            title: "note",
+            messageText: const Text("sucess to inspect"));
         orderrefresh();
       } else {
         statusRequest = StatusRequest.failure;
@@ -71,14 +74,23 @@ class Undercheckupcontroller extends GetxController {
   }
 
   orderrefresh() {
-  getUnderfinish();
+     getapproveunderinspect();
   }
+
+ 
 
   @override
   void onInit() {
-    
-  getUnderfinish();
-
+    ordersid = Get.arguments["ordersid"];
+     getapproveunderinspect();
+print("ordersid =====> $ordersid");
+    inspect = TextEditingController();
     super.onInit();
+  }
+  @override
+  void dispose() {
+    inspect.dispose();
+    // TODO: implement dispose
+    super.dispose();
   }
 }

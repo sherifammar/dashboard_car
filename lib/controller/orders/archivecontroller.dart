@@ -7,11 +7,11 @@ import '../../core/class/StatusRequest.dart';
 import '../../core/function/handlingdatacontroller.dart';
 import '../../core/services/servives.dart';
 
-import '../../data/remote/orders/approveorder_underinspectdata.dart';
+import '../../data/remote/orders/approveorder_underinspect_data.dart';
 import '../../data/remote/orders/archive_data.dart';
-import '../../data/remote/orders/undercheckup.dart';
-import '../../data/remote/orders/underfinish.dart';
-import '../../data/remote/orders/underfix.dart';
+import '../../data/remote/orders/undercheckup_data.dart';
+import '../../data/remote/orders/underfinish_data.dart';
+import '../../data/remote/orders/underfix_data.dart';
 import '../../model.dart/ordersmodel.dart';
 
 class Archivecontroller extends GetxController {

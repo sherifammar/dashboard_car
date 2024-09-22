@@ -7,6 +7,10 @@ import 'package:dashboard_car/screen/auth/login.dart';
 import 'package:dashboard_car/screen/auth/scucess_signup.dart';
 import 'package:dashboard_car/screen/auth/sginup.dart';
 import 'package:dashboard_car/screen/homescreen.dart';
+import 'package:dashboard_car/screen/orders/approveorders.dart';
+import 'package:dashboard_car/screen/orders/inspectorders.dart';
+import 'package:dashboard_car/screen/orders/orderspending.dart';
+import 'package:dashboard_car/screen/orders/underfix.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get_navigation/src/routes/get_route.dart';
@@ -34,7 +38,10 @@ GetPage(name:    AppRoutes.scucess_sginup, page: ()=>const Scusesssginup()),
 
 // GetPage(name:    AppRoutes.verifycode_sginup, page: ()=>const Verifycode_sginup()),
 GetPage(name:    AppRoutes.homescreen, page: ()=>const HomeScreen()),
-
+GetPage(name:    AppRoutes.approve, page: ()=>const ApproveOrders()),
+GetPage(name:    AppRoutes.orderpending, page: ()=>const Orderspending()),
+GetPage(name:    AppRoutes.inspectorder, page: ()=>const InspectOrders()),
+GetPage(name:    AppRoutes.underfix , page: ()=>const Underfix()),
 // GetPage(name:    AppRoutes.archive, page: ()=>const OrdersArchiveView()),
 
 //=================== addresss ====

@@ -8,15 +8,16 @@ import '../../../../controller/orders/orderspendingcontroller.dart';
 import '../../../../model.dart/ordersmodel.dart';
 
 
+import '../../../controller/orders/underfixcontroller.dart';
 import '../../../data/remote/orders/orderspending_data.dart';
 
-class CardpendingOrders extends GetView< OrdersPending> {
+class Cardunderfix extends GetView<Underfixcontroller> {
   final OrdersModel ordersModel;
-  const CardpendingOrders({super.key, required this.ordersModel});
+  const Cardunderfix({super.key, required this.ordersModel});
 
   @override
   Widget build(BuildContext context) {
-     OrderPendingController controller = Get.put(OrderPendingController());
+     Underfixcontroller controller = Get.put(Underfixcontroller());
 
     return Card(
       child: Container(
@@ -59,7 +60,7 @@ class CardpendingOrders extends GetView< OrdersPending> {
                   children: [
                     IconButton(
                       onPressed: () {
-                        controller.editationWithdate(ordersModel.ordersId!);
+                        controller.UppdateinspectTofix(ordersModel.ordersId!);
                       },
                       icon: const Icon(Icons.approval),
                     ),
@@ -96,22 +97,7 @@ class CardpendingOrders extends GetView< OrdersPending> {
                
                
                
-                 Row(
-                   children: [
-                     IconButton(
-                      onPressed: () {
-                        controller.editation(ordersModel.ordersId!,ordersModel.ordersBookingdate!);
-                      },
-                      icon: const Icon(Icons.approval_outlined),
-                ),
-                IconButton(
-                  onPressed: () {
-                    controller.deletOrders(ordersModel.ordersId!);
-                  },
-                  icon: const Icon(Icons.delete_outline),
-                ),
-                   ],
-                 ),
+           
                  
               ],
             )
