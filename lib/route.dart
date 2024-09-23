@@ -10,6 +10,9 @@ import 'package:dashboard_car/screen/homescreen.dart';
 import 'package:dashboard_car/screen/orders/approveorders.dart';
 import 'package:dashboard_car/screen/orders/inspectorders.dart';
 import 'package:dashboard_car/screen/orders/orderspending.dart';
+import 'package:dashboard_car/screen/orders/unchekup.dart';
+import 'package:dashboard_car/screen/orders/underdelivery.dart';
+import 'package:dashboard_car/screen/orders/underfinish.dart';
 import 'package:dashboard_car/screen/orders/underfix.dart';
 import 'package:flutter/material.dart';
 
@@ -42,6 +45,10 @@ GetPage(name:    AppRoutes.approve, page: ()=>const ApproveOrders()),
 GetPage(name:    AppRoutes.orderpending, page: ()=>const Orderspending()),
 GetPage(name:    AppRoutes.inspectorder, page: ()=>const InspectOrders()),
 GetPage(name:    AppRoutes.underfix , page: ()=>const Underfix()),
+GetPage(name:    AppRoutes.uncheckup , page: ()=>const Undercheckup()),
+GetPage(name:    AppRoutes.underfinish , page: ()=>const Underfinish()),
+GetPage(name:    AppRoutes.underdelivery , page: ()=>const Underdelivery()),
+
 // GetPage(name:    AppRoutes.archive, page: ()=>const OrdersArchiveView()),
 
 //=================== addresss ====

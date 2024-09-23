@@ -149,7 +149,10 @@ class Setting extends StatelessWidget {
                                   ),
                                   margin: EdgeInsets.all(5),
                                   child: MaterialButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+
+                                             Get.toNamed(AppRoutes.uncheckup);
+                                    },
                                     child: Text(
                                         "Under checkup ${controller.countcheckup}"),
                                   ),
@@ -163,7 +166,10 @@ class Setting extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(25),
                                   ),
                                   child: MaterialButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      
+                                             Get.toNamed(AppRoutes.underfinish);
+                                    },
                                     child: Text(
                                       "Under finish ${controller.countfinish},",
                                     ),
@@ -178,7 +184,9 @@ class Setting extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(25),
                                   ),
                                   child: MaterialButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                       Get.toNamed(AppRoutes.underdelivery);
+                                    },
                                     child: Text(
                                       "Delivery    ${controller.countdelivery}",
                                       style: TextStyle(color: Colors.white),

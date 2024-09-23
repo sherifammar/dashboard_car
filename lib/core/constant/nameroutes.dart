@@ -21,6 +21,8 @@ class AppRoutes {
   static const String orderpending = "/orderpending";
   static const String inspectorder = "/inspectorder";
   static const String underfix  = "/underfix";
-
+static const String uncheckup  = "/uncheckup";
+static const String underfinish  = "/underfinish";
+static const String underdelivery  = "/underdelivery";
 
 }

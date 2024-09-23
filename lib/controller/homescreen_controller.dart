@@ -15,10 +15,9 @@ class HomeScreencontrollerImp extends HomeScreencontroller {
 
   Myservices myservices = Get.find();
   List<Widget> listPage = [
-    // const Orderspending(),
-    // const ApproveOrders(),
-    // const OrdersArchiveView(),
-    const Setting()
+  const Setting(),
+    const OrdersArchiveView(),
+   
   ];
   @override
   changePage(int i) {
@@ -27,10 +26,10 @@ class HomeScreencontrollerImp extends HomeScreencontroller {
   }
 
   List BottomAppBar = [
-    {"title": "Pending", "icon": Icons.notification_add_outlined},
-    {"title": "Approve", "icon": Icons.person_pin_sharp},
+   
+  {"title": "setting", "icon": Icons.settings},
     {"title": "Achive", "icon": Icons.archive_outlined},
-    {"title": "setting", "icon": Icons.settings},
+  
   ];
 }
   

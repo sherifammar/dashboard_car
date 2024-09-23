@@ -13,7 +13,7 @@ import '../../data/remote/orders/underfinish_data.dart';
 import '../../data/remote/orders/underfix_data.dart';
 import '../../model.dart/ordersmodel.dart';
 
-class Undercheckupcontroller extends GetxController {
+class Underfinishcontroller extends GetxController {
   late StatusRequest statusRequest = StatusRequest.none;
   List<OrdersModel> data = [];
    UnderfinishData ordersDetail =  UnderfinishData(Get.find());
