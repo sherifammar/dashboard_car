@@ -4,6 +4,7 @@ import '../core/services/servives.dart';
 import '../screen/orders/approveorders.dart';
 import '../screen/orders/archive.dart';
 import '../screen/orders/orderspending.dart';
+import '../screen/profile.dart';
 import '../screen/setting.dart';
 
 abstract class HomeScreencontroller extends GetxController {
@@ -15,6 +16,7 @@ class HomeScreencontrollerImp extends HomeScreencontroller {
 
   Myservices myservices = Get.find();
   List<Widget> listPage = [
+    const Profile(),
   const Setting(),
     const OrdersArchiveView(),
    
@@ -26,6 +28,7 @@ class HomeScreencontrollerImp extends HomeScreencontroller {
   }
 
   List BottomAppBar = [
+      {"title": "profile", "icon": Icons.menu},
    
   {"title": "setting", "icon": Icons.settings},
     {"title": "Achive", "icon": Icons.archive_outlined},
