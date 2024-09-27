@@ -11,6 +11,7 @@ import '../../../../model.dart/ordersmodel.dart';
 import '../../../controller/orders/undercheckup_controller.dart';
 import '../../../controller/orders/underfinish_controller.dart';
 import '../../../controller/orders/underfixcontroller.dart';
+import '../../../core/constant/color.dart';
 import '../../../data/remote/orders/orderspending_data.dart';
 
 class Cardunderfinish extends GetView<Underfinishcontroller > {
@@ -58,44 +59,58 @@ class Cardunderfinish extends GetView<Underfinishcontroller > {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        controller.uppdatecheckuptofinish(ordersModel.ordersId!);
-                      },
-                      icon: const Icon(Icons.approval),
+              
+                    Container(
+                      margin: const EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: ColorAPP.contentColorRed,
+                      ),
+                      child: MaterialButton(
+                        onPressed: () {
+                          controller.uppdatecheckuptofinish(ordersModel.ordersId!);
+                        },
+                        child: Text("Approve"),
+                      ),
                     ),
-                     IconButton(
-                  onPressed: () async {
-                    DateTime? newDate = await showDatePicker(
-                        context: context,
-                        initialDate: controller.dateTime,
-                        firstDate: DateTime(2000),
-                        lastDate: DateTime(2100));
-                    if (newDate == null) return;
-                    TimeOfDay? newTime = await showTimePicker(
-                        context: context,
-                        initialTime: TimeOfDay(
-                            hour: controller.dateTime.hour,
-                            minute: controller.dateTime.minute));
-                    if (newTime == null) return;
-                    final newDateTime = DateTime(
-                      newDate.year,
-                      newDate.month,
-                      newDate.day,
-                      // newTime.hour,
-                      // newTime.minute,
-                    );
-                    controller. choosetpeBookingdate(newDateTime.toString());
-                   
-
-                    print(newDateTime.toString());
-                  },
-                  icon: const Icon(Icons.date_range),
-                ),
-                  ],
-                ),
+                     Container(
+                      margin: const EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: ColorAPP.contentColorRed,
+                      ),
+                       child: MaterialButton(
+                                       onPressed: () async {
+                                         DateTime? newDate = await showDatePicker(
+                          context: context,
+                          initialDate: controller.dateTime,
+                          firstDate: DateTime(2000),
+                          lastDate: DateTime(2100));
+                                         if (newDate == null) return;
+                                         TimeOfDay? newTime = await showTimePicker(
+                          context: context,
+                          initialTime: TimeOfDay(
+                              hour: controller.dateTime.hour,
+                              minute: controller.dateTime.minute));
+                                         if (newTime == null) return;
+                                         final newDateTime = DateTime(
+                        newDate.year,
+                        newDate.month,
+                        newDate.day,
+                        // newTime.hour,
+                        // newTime.minute,
+                                         );
+                                         controller. choosetpeBookingdate(newDateTime.toString());
+                                        
+                     
+                                         print(newDateTime.toString());
+                                       },
+                                child: Text("Choose Date"),
+                                     ),
+                     ),
+                
                
                
                

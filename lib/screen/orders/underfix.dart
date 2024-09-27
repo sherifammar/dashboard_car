@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../../controller/orders/underfixcontroller.dart';
 
+import '../../core/constant/color.dart';
 import '../widget/orders/cardunfix.dart';
 
 class Underfix extends StatelessWidget {
@@ -16,7 +17,9 @@ class Underfix extends StatelessWidget {
     return
      Scaffold(
         appBar: AppBar(
-          title:const Text("under fix Orders",style: TextStyle(color: Colors.white,fontSize: 20),),
+          backgroundColor:  ColorAPP.contentColorPurple,
+          title:const Text("under fix Orders",style: TextStyle(color: Colors.white,fontSize: 20),
+          ),
           centerTitle: true,
         ),
         body: Container(
@@ -28,7 +31,7 @@ class Underfix extends StatelessWidget {
                             Column(
                               children: [
                               const  SizedBox(height: 12,),
-                                      Text(" number : ${index+1}",style:const TextStyle(fontWeight: FontWeight.bold,color: Colors.red,fontSize: 20),),
+                                      
                                Cardunderfix(ordersModel: controller.data[index]),
                               ],
                             ),

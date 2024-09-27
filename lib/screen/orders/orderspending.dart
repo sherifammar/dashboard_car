@@ -1,3 +1,4 @@
+import 'package:dashboard_car/core/constant/color.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -15,7 +16,8 @@ class Orderspending extends StatelessWidget {
     return
      Scaffold(
         appBar: AppBar(
-          title:const Text("Pending Orders",style: TextStyle(color: Colors.white,fontSize: 20),),
+          backgroundColor:  ColorAPP.contentColorBlue,
+          title:const Text("Pending Orders",style: TextStyle(color: ColorAPP.black,fontSize: 30),),
           centerTitle: true,
         ),
         body: Container(
@@ -33,7 +35,7 @@ class Orderspending extends StatelessWidget {
                             Column(
                               children: [
                               const  SizedBox(height: 12,),
-                                      Text(" number : ${index+1}",style:const TextStyle(fontWeight: FontWeight.bold,color: Colors.red,fontSize: 20),),
+                                     
                                 CardpendingOrders(ordersModel: controller.data[index]),
                               ],
                             ),

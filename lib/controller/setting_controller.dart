@@ -8,6 +8,7 @@ import '../core/class/StatusRequest.dart';
 import '../core/constant/color.dart';
 import '../core/constant/nameroutes.dart';
 import '../core/function/handlingdatacontroller.dart';
+
 import '../core/services/servives.dart';
 import '../data/remote/setting_data.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -383,17 +384,6 @@ class SettingController extends GetxController {
   void onInit() {
     getcountitemscart();
 
-    // getSettingdata();
-    // name = TextEditingController();
-    // address = TextEditingController();
-    // title = TextEditingController();
-    // dates = TextEditingController();
-    // time = TextEditingController();
-    // name.text = settingname;
-    // address.text = settingaddress;
-    // title.text = settingtitle;
-    // dates.text = settingdates;
-    // time.text = settingtime;
 
     super.onInit();
   }

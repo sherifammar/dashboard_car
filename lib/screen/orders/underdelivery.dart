@@ -20,7 +20,7 @@ class Underdelivery extends StatelessWidget {
     return
      Scaffold(
         appBar: AppBar(
-          title:const Text("under fix Orders",style: TextStyle(color: Colors.white,fontSize: 20),),
+          title:const Text("under underdelivery Orders",style: TextStyle(color: Colors.white,fontSize: 20),),
           centerTitle: true,
         ),
         body: Container(
@@ -32,7 +32,7 @@ class Underdelivery extends StatelessWidget {
                             Column(
                               children: [
                               const  SizedBox(height: 12,),
-                                      Text(" number : ${index+1}",style:const TextStyle(fontWeight: FontWeight.bold,color: Colors.red,fontSize: 20),),
+                                   
                                Cardunderdelivery (ordersModel: controller.archiveData[index]),
                               ],
                             ),

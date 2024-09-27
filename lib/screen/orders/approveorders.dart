@@ -1,3 +1,4 @@
+import 'package:dashboard_car/core/constant/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,7 +16,9 @@ class ApproveOrders extends StatelessWidget {
     Approveorderscontroller controller = Get.put(Approveorderscontroller());
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Approve Orders",style: TextStyle(color: Colors.white,fontSize: 20),),
+          backgroundColor:  ColorAPP.contentColorYellow,
+          title: const Text("Approve Orders",style: TextStyle(color: ColorAPP.black,fontSize: 30),
+          ),
            centerTitle: true,
         ),
         body: Container(
@@ -30,7 +33,8 @@ class ApproveOrders extends StatelessWidget {
                         Column(
                           children: [
                          const   SizedBox(height: 10,),
-                            Text(" number : ${index+1}",style:const TextStyle(fontWeight: FontWeight.bold,color: Colors.red,fontSize: 20),),
+                          
+                            SizedBox(height: 10,),
                             CardapproveOrders(ordersModel: controller.data[index]),
                           ],
                         ),

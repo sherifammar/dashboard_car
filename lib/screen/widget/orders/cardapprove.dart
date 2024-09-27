@@ -1,3 +1,4 @@
+import 'package:dashboard_car/core/constant/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -22,7 +23,14 @@ class CardapproveOrders extends GetView<OrderPendingController> {
 
     return
      Card(
+      elevation: 10,
       child: Container(
+        margin: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(25),
+          border: Border.all(width: 2.0),
+
+        ),
         padding: const EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,12 +64,27 @@ class CardapproveOrders extends GetView<OrderPendingController> {
               style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
               Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    IconButton(onPressed: () {
-                      
-                      controller.Gotoinspect(ordersModel.ordersId!);
-                      
-                      }, icon: const Icon(Icons.approval_outlined),),
+
+                    Container(
+                      margin: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25),
+                        border: Border.all(width: 2.0),
+                        color: ColorAPP.contentColorYellow
+                      ),
+                      child:MaterialButton(
+                        child: const Text("Approve"),
+                        onPressed: () {
+                                 controller.Gotoinspect(ordersModel.ordersId!);
+                        }
+                        
+                      )
+                       )
+
+               
                     
                      
 

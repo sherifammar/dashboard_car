@@ -19,8 +19,10 @@ class CardpendingOrders extends GetView< OrdersPending> {
      OrderPendingController controller = Get.put(OrderPendingController());
 
     return Card(
+
+      elevation: 10,
       child: Container(
-        padding: const EdgeInsets.all(10),
+       
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -52,66 +54,124 @@ class CardpendingOrders extends GetView< OrdersPending> {
               " Record Date:   ${ordersModel.ordersRecordedate}",
               style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
+            SizedBox(height: 10,),
+            Divider(),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Row(
                   children: [
-                    IconButton(
-                      onPressed: () {
-                        controller.editationWithdate(ordersModel.ordersId!);
-                      },
-                      icon: const Icon(Icons.approval),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.green,
+                      ),
+                      child: MaterialButton(
+                        onPressed: () {
+                          controller.editationWithdate(ordersModel.ordersId!);
+                        },
+                        child: const Text("Edit"),
+                      ),
                     ),
-                     IconButton(
-                  onPressed: () async {
-                    DateTime? newDate = await showDatePicker(
-                        context: context,
-                        initialDate: controller.dateTime,
-                        firstDate: DateTime(2000),
-                        lastDate: DateTime(2100));
-                    if (newDate == null) return;
-                    TimeOfDay? newTime = await showTimePicker(
-                        context: context,
-                        initialTime: TimeOfDay(
-                            hour: controller.dateTime.hour,
-                            minute: controller.dateTime.minute));
-                    if (newTime == null) return;
-                    final newDateTime = DateTime(
-                      newDate.year,
-                      newDate.month,
-                      newDate.day,
-                      // newTime.hour,
-                      // newTime.minute,
-                    );
-                    controller. choosetpeBookingdate(newDateTime.toString());
-                   
-
-                    print(newDateTime.toString());
-                  },
-                  icon: const Icon(Icons.date_range),
+                    SizedBox(width: 5,),
+                     Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.red,
+                      ),
+                       child: MaterialButton(
+                                       onPressed: () async {
+                                         DateTime? newDate = await showDatePicker(
+                          context: context,
+                          initialDate: controller.dateTime,
+                          firstDate: DateTime(2000),
+                          lastDate: DateTime(2100));
+                                         if (newDate == null) return;
+                                         TimeOfDay? newTime = await showTimePicker(
+                          context: context,
+                          initialTime: TimeOfDay(
+                              hour: controller.dateTime.hour,
+                              minute: controller.dateTime.minute));
+                                         if (newTime == null) return;
+                                         final newDateTime = DateTime(
+                        newDate.year,
+                        newDate.month,
+                        newDate.day,
+                        // newTime.hour,
+                        // newTime.minute,
+                                         );
+                                         controller. choosetpeBookingdate(newDateTime.toString());
+                                        
+                     
+                                         print(newDateTime.toString());
+                                       },
+                                       child:const Text("Another Date"),
+                                     ),
+                     ),
+                       SizedBox(width: 5,),
+                        Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.green,
+                      ),
+                       child: MaterialButton(
+                        onPressed: () {
+                          controller.editation(ordersModel.ordersId!,ordersModel.ordersBookingdate!);
+                        },
+                       child: const Text("Approve"),
+                                     ),
+                     ),
+                       SizedBox(width: 5,),
+                Container(
+                   decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.red,
+                      ),
+                  child: MaterialButton(
+                    
+                    onPressed: () {
+                      controller.deletOrders(ordersModel.ordersId!);
+                    },
+                    child: const Text("Delete"),
+                  ),
                 ),
+                     
                   ],
                 ),
                
                
                
-                 Row(
-                   children: [
-                     IconButton(
-                      onPressed: () {
-                        controller.editation(ordersModel.ordersId!,ordersModel.ordersBookingdate!);
-                      },
-                      icon: const Icon(Icons.approval_outlined),
-                ),
-                IconButton(
-                  onPressed: () {
-                    controller.deletOrders(ordersModel.ordersId!);
-                  },
-                  icon: const Icon(Icons.delete_outline),
-                ),
-                   ],
-                 ),
+                //  Row(
+                //   // crossAxisAlignment: CrossAxisAlignment.stretch,
+                //    children: [
+                //      Container(
+                //       decoration: BoxDecoration(
+                //         borderRadius: BorderRadius.circular(10),
+                //         color: Colors.green,
+                //       ),
+                //        child: MaterialButton(
+                //         onPressed: () {
+                //           controller.editation(ordersModel.ordersId!,ordersModel.ordersBookingdate!);
+                //         },
+                //        child: const Text("Approve"),
+                //                      ),
+                //      ),
+                // Container(
+                //    decoration: BoxDecoration(
+                //         borderRadius: BorderRadius.circular(10),
+                //         color: Colors.red,
+                //       ),
+                //   child: MaterialButton(
+                    
+                //     onPressed: () {
+                //       controller.deletOrders(ordersModel.ordersId!);
+                //     },
+                //     child: const Text("Delete"),
+                //   ),
+                // ),
+                //    ],
+                //  ),
                  
               ],
             )
