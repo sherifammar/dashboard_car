@@ -16,8 +16,9 @@ class HomeScreencontrollerImp extends HomeScreencontroller {
 
   Myservices myservices = Get.find();
   List<Widget> listPage = [
+      const Setting(),
     const Profile(),
-  const Setting(),
+
     const OrdersArchiveView(),
    
   ];
@@ -28,9 +29,10 @@ class HomeScreencontrollerImp extends HomeScreencontroller {
   }
 
   List BottomAppBar = [
+      {"title": "setting", "icon": Icons.settings},
       {"title": "profile", "icon": Icons.menu},
    
-  {"title": "setting", "icon": Icons.settings},
+
     {"title": "Achive", "icon": Icons.archive_outlined},
   
   ];
