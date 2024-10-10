@@ -5,6 +5,7 @@ class AppLink {
   static const String login = "$server/aurh/login.php";
   static const String signup = "$server/aurh/signup.php";
   static const String VerfiyCodeSignup = "$server/aurh/resendverfiycode.php";
+  static const String VerfiyCode_Signup = "$server/aurh/verfiycode.php";
 
   // ======= forgetpassword=====//
 

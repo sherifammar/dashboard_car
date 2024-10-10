@@ -10,7 +10,7 @@ class VerfiyCodeSignupData {
   postData( String email) async {
     // this method give l or r only
 
-    var response = await crud.postData("http://192.168.1.4/ecommeria/aurh/verfiycode.php", 
+    var response = await crud.postData("${AppLink.VerfiyCode_Signup}", 
     {
       
       "email" : email , 
